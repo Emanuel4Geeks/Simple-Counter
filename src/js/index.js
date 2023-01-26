@@ -12,19 +12,16 @@ let counterId;
 let seconds = 0;
 
 const counter = () => {
-    console.log("start");
     if (!counterId) counterId = setInterval(renderCounter, 1000)
 }
 
 const clearCounter = (id) => {
     clearInterval(id);
     counterId = "";
-    console.log("stop");
 }
 
 const restartCounter = () => {
     seconds = 0;
-    console.log("restart");
 }
 
 const renderCounter = () => {
