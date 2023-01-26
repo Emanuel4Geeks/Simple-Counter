@@ -12,12 +12,19 @@ let counterId;
 let seconds = 0;
 
 const counter = () => {
+    console.log("start");
     if (!counterId) counterId = setInterval(renderCounter, 1000)
 }
 
 const clearCounter = (id) => {
     clearInterval(id);
-    counterId = ""
+    counterId = "";
+    console.log("stop");
+}
+
+const restartCounter = () => {
+    seconds = 0;
+    console.log("restart");
 }
 
 const renderCounter = () => {
@@ -26,8 +33,9 @@ const renderCounter = () => {
     ReactDOM.render(<SecondsCounter
         seconds={seconds}
         counterId={counterId}
-        cbInterval={counter}
-        cbClear={clearCounter} />, document.querySelector("#app"));
+        start={counter}
+        stop={clearCounter}
+        restart={restartCounter} />, document.querySelector("#app"));
 }
 
 counter();
